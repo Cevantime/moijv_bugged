@@ -1,0 +1,61 @@
+{% extends "admin/layout_admin.html.twig" %}
+
+{% block body %}
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i> {{ 'dashboard.user_list.title' | trans }}
+            <a class="btn btn-primary" href="{{ path('add_user') }}"><i
+                        class="fa fa-plus"></i> {{ 'dashboard.user_list.add_action' | trans }}</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>{{ 'dashboard.user_list.login_col' | trans }}</th>
+                        <th>{{ 'dashboard.user_list.email_col' | trans }}</th>
+                        <th>{{ 'dashboard.user_list.register_date' | trans }}</th>
+                        <th>{{ 'dashboard.user_list.nbproducts' | trans }}</th>
+                        <th>{{ 'dashboard.user_list.nbloans' | trans }}</th>
+                        <th>{{ 'dashboard.user_list.roles' | trans }}</th>
+                        <th>{{ 'dashboard.user_list.actions' | trans }}</th>
+
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>{{ 'dashboard.user_list.login_col' | trans }}</th>
+                        <th>{{ 'dashboard.user_list.email_col' | trans }}</th>
+                        <th>{{ 'dashboard.user_list.register_date' | trans }}</th>
+                        <th>{{ 'dashboard.user_list.nbproducts' | trans }}</th>
+                        <th>{{ 'dashboard.user_list.nbloans' | trans }}</th>
+                        <th>{{ 'dashboard.user_list.roles' | trans }}</th>
+                        <th>{{ 'dashboard.user_list.actions' | trans }}</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.registerDate | date('d/m/Y') }}</td>
+                            <td>{{ user.products | length }}</td>
+                            <td>{{ user.loans | length }}</td>
+                            <td>{% for role in user.roles %}{{ role }} {% endfor %}</td>
+                            {# <td><a href="/admin/delete/user/4">... #}
+                            <td>
+                                <a class="btn btn-danger" href="{{ path('delete_user', { 'id' : user.id }) }}">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                                <a class="btn btn-success" href="{{ path('edit_user', { 'id' : user.id }) }}">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+<!-- Page Features -->
+<div class="row text-center">
+    {% for product in products %}
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card">
+                <img class="card-img-top" src="{{ asset(product.image) }}" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">{{ product.title }}</h4>
+                    <p class="card-text">{{ product.description }}</p>
+                    <div>
+                        {% for tag in product.tags %}
+                            <a href="{{ path('tag',{'slug' : tag.slug}) }}" class="badge badge-info badge-pill">#{{ tag.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% if is_granted('ROLE_USER') and product.owner.id == app.user.id %}
+                <div class="card-footer">
+                    <a class="btn btn-primary" href="{{ path('edit_product', {'id' : product.id}) }}">{{ 'product_list.edit_action' | trans }}</a>
+                    <a class="btn btn-danger" href="{{ path('delete_product', {'id' : product.id}) }}">{{ 'product_list.delete_action' | trans }}</a>
+                </div>
+                {% elseif is_granted('ROLE_USER') and not product.isLoaned %}
+                    <div class="card-footer">
+                        <a class="btn btn-success" href="{{ path('add_loan', {'id' : product.id } ) }}">{{ 'product_list.borrow_action' | trans }}</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% if products.haveToPaginate %}
+    {% if tag is defined %}
+    <div class="d-flex justify-content-center">
+        {{ pagerfanta(products,'twitter_bootstrap4', {'routeName' : routeName, 'routeParams' : {'slug' : tag.slug}}) }}
+    </div>
+    {% else %}
+    <div class="d-flex justify-content-center">
+        {{ pagerfanta(products,'twitter_bootstrap4', {'routeName' : routeName}) }}
+    </div>
+    {% endif %}
+{% endif %}
+<!-- /.row -->

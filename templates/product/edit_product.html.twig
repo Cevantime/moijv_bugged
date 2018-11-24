@@ -1,0 +1,57 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/selectize.css') }}" rel="stylesheet"/>   
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="mx-auto col-md-6">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+            <a class="btn btn-primary" href="{{ path('product') }}">{{ 'edit_product.back_to_list_action' | trans}}</a>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/selectize.js') }}"></script>
+    <script>
+        $(function () {
+
+            $('#product_tags').selectize({
+                delimiter: ',',
+                valueField: 'name',
+                labelField: 'name',
+                searchField: 'slug',
+                create: true,
+                persist: true,
+                render: {
+                    option: function (item, escape) {
+                        return '<div>' +
+                                '<span class="name">' + escape(item.name) + '</span>' +
+                                '</div>';
+                    }
+                },
+                load: function (query, callback) {
+                    if (!query.length)
+                        return callback();
+                    $.ajax({
+                        url: "{{ path('search_tag') }}",
+                        type: 'GET',
+                        dataType: 'json',
+                        data: {
+                            search: query
+                        },
+                        error: function () {
+                            callback();
+                        },
+                        success: function (res) {
+                            callback(res);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+{% endblock %}

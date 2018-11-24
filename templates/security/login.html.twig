@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <form class="my-2" action="{{ path('login') }}" method="post">
+        <div class="form-group">
+            <label for="username">{{ 'login.label.username' | trans }}:</label>
+            <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" />
+        </div>
+        <div class="form-group">
+            <label for="password">{{ 'login.label.pasword' | trans }}:</label>
+            <input class="form-control" type="password" id="password" name="_password" />
+        </div>
+        {#
+            If you want to control the URL the user
+            is redirected to on success (more details below)
+            <input type="hidden" name="_target_path" value="/account" />
+        #}
+
+        <button class="btn btn-primary" type="submit">{{ 'login' | trans }}</button>
+    </form>
+{% endblock %}

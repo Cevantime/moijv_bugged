@@ -1,0 +1,43 @@
+login: Connexion
+product_list.edit_action: Modifier
+product_list.delete_action: Supprimer
+product_list.borrow_action: Emprunter
+edit_product.back_to_list_action: 'Retour à la liste des produits'
+product_list.title: 'Listes des produits'
+product_list.add_action: 'Ajouter un produit'
+dashboard.user_list.title: 'Liste des utilisateur'
+dashboard.user_list.add_action: 'ajouter une utilisateur'
+dashboard.user_list.login_col: 'Se connecter'
+dashboard.user_list.email_col: Courriel
+dashboard.user_list.register_date: 'Date d''inscription'
+dashboard.user_list.roles: Roles
+dashboard.user_list.actions: Actions
+dashboard.user_list.nbproducts: 'Nb produits'
+dashboard.user_list.nbloans: 'Nb emprunts'
+edit_user.back_to_dashboard: 'Retour au tableau de bord'
+admin_menu.dashboard: 'Tableau de bord'
+home.message: 'Bienvenue sur la page d''accueil'
+loan_edit.choose_end_date_message: 'Choisissez la date de fin de l''emprunt'
+tag.product_list.title: 'Liste des produits associés au tag "%tag%"'
+menu.home: Accueil
+menu.about: 'À propos'
+menu.my_products: 'Mes produits'
+menu.my_loans: 'Mes emprunts'
+menu.admin: 'Administration'
+menu.logout: 'Se déconnecter'
+menu.login: 'Se connecter'
+menu.contact: 'Nous contacter'
+default_title: 'La plateforme de partage de jeux vidéo !'
+login.label.pasword: 'Mot de passe'
+login.label.username: 'Nom d''utilisateur'
+form_product.label.title : Titre
+form_product.label.description : Description
+form_product.label.image : Image
+form_product.label.tags : Tags
+form_product.label.submit : Envoyer
+app.name: MoiJV
+
+admin.logout : 'Se déconnecter'
+admin.readytoleave: 'Vous partez déjà ?'
+admin.selectlogout: 'Cliquez sur le bouton de déconnection ci-dessous pour mettre fin à la session.'
+admin.cancel: Annuler

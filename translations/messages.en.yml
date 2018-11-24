@@ -1,0 +1,43 @@
+login: Login
+product_list.edit_action: Edit
+product_list.delete_action: Delete
+product_list.borrow_action: Borrow
+edit_product.back_to_list_action: 'Back to products list'
+product_list.title: 'Product List'
+product_list.add_action: 'Add a product'
+dashboard.user_list.title: 'User List'
+dashboard.user_list.add_action: 'Add a user'
+dashboard.user_list.login_col: Login
+dashboard.user_list.email_col: Email
+dashboard.user_list.register_date: 'Register date'
+dashboard.user_list.nbproducts: 'Nb products'
+dashboard.user_list.nbloans: 'Nb loans'
+dashboard.user_list.roles: Roles
+dashboard.user_list.actions: Actions
+edit_user.back_to_dashboard: 'Back to dashboard'
+admin_menu.dashboard: Dashboard
+home.message: 'Welcome on the home page !'
+loan_edit.choose_end_date_message: 'Choose the loan end date'
+tag.product_list.title: 'List of products associated with `%tag%`'
+menu.home: Home
+menu.about: About
+menu.my_products: 'My products'
+menu.my_loans: 'My loans'
+menu.logout: 'Log out'
+menu.login: 'Log in'
+menu.contact: 'Contact us'
+menu.admin: 'Administration'
+default_title: 'The video game sharing platform !'
+login.label.username: Username
+login.label.pasword: Password
+form_product.label.title : Title
+form_product.label.description : Description
+form_product.label.image : Image
+form_product.label.tags : Tags
+form_product.label.submit : Send
+app.name: MoiJV
+
+admin.logout: 'Log out'
+admin.readytoleave: 'Ready to leave ?'
+admin.selectlogout: 'Select "Logout" below if you are ready to end your current session.'
+admin.cancel: Cancel

@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'tag.product_list.title'|trans({'%tag%': tag.name})}}{% endblock %}
+
+{% block body %}
+    <h1>{{ block('title') }}</h1>
+    
+    {% include 'incs/product_list.html.twig' with {'products' : products, 'routeName' : 'tag_paginated'} %}
+{% endblock %}
