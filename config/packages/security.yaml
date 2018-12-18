@@ -8,7 +8,7 @@ security:
         custom_provider:
             entity:
                 class: App\Entity\User
-                property: username 
+                property: username
             
     firewalls:
         dev:

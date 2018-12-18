@@ -28,7 +28,6 @@ class ProductTranslation
      */
     private $description;
     
-    
     public function __construct()
     {
         $this->tags = new ArrayCollection();

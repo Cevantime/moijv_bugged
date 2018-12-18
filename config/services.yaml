@@ -32,3 +32,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\EventSubscriber\LocaleFixSubscriber:
+        arguments:
+            - "@knp.doctrine_behaviors.reflection.class_analyzer"
+        tags:
+            - { name: doctrine.event_subscriber, event: loadClassMetadata, priority: 100 }
