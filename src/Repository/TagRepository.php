@@ -45,8 +45,8 @@ class TagRepository extends ServiceEntityRepository
     public function searchBySlug($slug)
     {
         return $this->createQueryBuilder('t')
-                ->where('t.slug LIKE %:slug%')
-                ->setParameter('slug', $slug)
+                ->where('t.slug LIKE :slug')
+                ->setParameter('slug', '%'.$slug.'%')
                 ->getQuery()->getResult();
     }
 

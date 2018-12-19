@@ -23,7 +23,9 @@ class UserRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('u')
             ->leftJoin('u.products', 'p')
+            ->addSelect('p')
             ->leftJoin('u.loans', 'l')
+            ->addSelect('l')
             ->getQuery()
             ->getResult();
     }

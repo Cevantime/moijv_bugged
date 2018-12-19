@@ -52,13 +52,13 @@ class User implements UserInterface, \Serializable
     private $roles;
     
     /**
-     * @ORM\OneToMany(targetEntity="Product", mappedBy="owner")
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="owner", cascade={"all"})
      * @var Collection products
      */
     private $products;
     
     /**
-     * @ORM\OneToMany(targetEntity="Loan", mappedBy="loaner")
+     * @ORM\OneToMany(targetEntity="Loan", mappedBy="loaner", cascade={"all"})
      * @var Collection
      */
     private $loans;

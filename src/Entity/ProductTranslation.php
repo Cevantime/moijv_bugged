@@ -3,10 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Validator\Constraints as Assert;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
@@ -18,13 +16,11 @@ class ProductTranslation
     use ORMBehaviors\Translatable\Translation;
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\Length(min=3, max=50)
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\Length(min=15,max=65000)
      */
     private $description;
     
@@ -58,5 +54,8 @@ class ProductTranslation
         return $this;
     }
     
-
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 }

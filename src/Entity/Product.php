@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Entity;
 
@@ -27,9 +28,7 @@ class Product
     
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(groups={"insertion"})
-     * @Assert\Image(maxSize = "2M",minWidth="200", minHeight="200")
-     * @var object
+     * @var string
      */
     private $image;
     
