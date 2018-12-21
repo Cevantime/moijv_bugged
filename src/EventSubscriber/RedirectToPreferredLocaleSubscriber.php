@@ -56,7 +56,7 @@ class RedirectToPreferredLocaleSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            KernelEvents::REQUEST => 'onKernelRequest',
+            KernelEvents::REQUEST => ['onKernelRequest', 200],
         ];
     }
 
@@ -71,9 +71,9 @@ class RedirectToPreferredLocaleSubscriber implements EventSubscriberInterface
         
         $preferredLanguage = $request->getPreferredLanguage($this->locales);
         
-        if ($preferredLanguage !== $this->defaultLocale) {
+        //if ($preferredLanguage !== $this->defaultLocale) {
             $response = new RedirectResponse($this->urlGenerator->generate('home', ['_locale' => $preferredLanguage]));
             $event->setResponse($response);
-        }
+        //}
     }
 }
