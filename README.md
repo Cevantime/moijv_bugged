@@ -1,7 +1,7 @@
 
 # Moijv bugged
 
-Cette application symfoyny a été conçue pour être la plus buguée possible !
+Cette application symfony a été conçue pour être la plus buguée possible !
 
 Parmi les bugs rencontrés, citons :
 
